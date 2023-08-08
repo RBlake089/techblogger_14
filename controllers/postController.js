@@ -8,7 +8,7 @@ const Comment = require('../models/comment');
 module.exports = {
   // Method to render the create-new-post page
   getNewPostPage: async (req, res) => {
-    res.render('create-new-post', {
+    res.render('createNewPost', {
       loggedIn: req.session.loggedIn,
       user_id: req.session.user_id
     });
@@ -39,7 +39,7 @@ module.exports = {
         include: [User, Comment]
       });
       const post = postData.get({ plain: true });
-      res.render('single-post-form', {
+      res.render('singlePostForm', {
         post,
         loggedIn: req.session.loggedIn,
         user_id: req.session.user_id,
@@ -62,7 +62,7 @@ module.exports = {
         include: [User, Post]
       });
       const comments = commentData.map((comment) => comment.get({ plain: true }));
-      res.render('single-post-no-form', {
+      res.render('singlePostNoForm', {
         post,
         comments,
         username: req.session.username,
@@ -81,7 +81,7 @@ module.exports = {
         include: [User]
       });
       const post = postData.get({ plain: true });
-      res.render('single-post-delete-update', {
+      res.render('singlePostDeleteUpdate', {
         post,
         username: req.session.username,
         loggedIn: req.session.loggedIn,

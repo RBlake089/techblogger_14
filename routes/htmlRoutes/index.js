@@ -4,10 +4,10 @@ const router = require('express').Router();
 // Import the various route modules
 const homeRoutes = require('./homeRoutes');
 const dashboardRoutes = require('./dashboardRoutes');
-const loginRoutes = require('./login-page-routes');
+const loginRoutes = require('./loginPageRoutes');
 const signupRoutes = require('./signupRoutes');
-const newPostRoutes = require('./new-post-routes');
-const singlePostRoutes = require('./single-post-routes');
+const newPostRoutes = require('./newPostRoutes');
+const singlePostRoutes = require('./singlePostRoutes');
 
 // Define routes and delegate to the appropriate route modules
 

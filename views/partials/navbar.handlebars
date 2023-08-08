@@ -1,0 +1,27 @@
+<nav class="">
+{{#if loggedIn}}  
+
+  <div class="">
+    <a class="" href='/' id='home'>Home</a>
+    <a class="" href='/dashboard/{{user_id}}'id='dashboard'>Dashboard</a>
+    <a class="" id="logout" href='/login'>Logout</a>
+  </div>
+
+  <div class=" ">
+    <h1 class="" id='page-title'>The Tech Blog</h1>
+  </div>
+
+{{else}}
+
+  <div class="">
+    <a class="" href='/'>Home</a>
+    <a class="" href="/dashboard">Dashboard</a>
+    <a class="" href='/login'>Login</a>
+  </div>
+
+  <div class="">
+    <h1 class="" id='page-title'>The Tech Blog</h1>
+  </div>
+
+{{/if}}
+</nav>

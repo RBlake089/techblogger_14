@@ -1,0 +1,24 @@
+<div class="">
+{{#if loggedIn}}
+
+<div class="">
+
+  <div class="">
+    <div class="">
+      <h2 class="">{{posts.title}}</h2>
+      <p class="">Posted by {{posts.user.username}} on {{formatDate posts.createdAt}}</p>
+    </div>
+  </div>
+
+  <div class="">
+    <div>
+      <p>{{posts.description}}</p>
+    </div>
+  </div>
+</div>
+
+  {{> comment-form}}
+
+{{/if}}
+
+</div>

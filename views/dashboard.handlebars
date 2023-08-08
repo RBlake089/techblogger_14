@@ -1,0 +1,18 @@
+<div class="">
+  {{#if loggedIn}}
+
+  <h1 class="" >Your Dashboard</h1>
+
+  {{#each userPosts as |userPost| }}
+  {{> dashboard-card}}
+  {{/each}}
+
+  <a href="/createNewPost" id="newPost" class="">+New Post</a>
+
+  {{else}}
+
+  <a href="/login" class="">Login</a>
+
+  {{/if}}
+
+</div>
