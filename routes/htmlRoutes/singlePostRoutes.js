@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 // Import the PostController module
-const PostController = require('../../controllers/PostController');
+const PostController = require('../../controllers/postController');
 
 // Define routes and associate them with corresponding controller methods
 

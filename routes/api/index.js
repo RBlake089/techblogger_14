@@ -2,8 +2,8 @@
 const router = require('express').Router();
 
 // Import the necessary controllers and middleware
-const PostController = require('../../controllers/PostController');
-const UserController = require('../../controllers/UserController');
+const PostController = require('../../controllers/postController');
+const UserController = require('../../controllers/userController');
 const CommentController = require('../../controllers/commentController');
 const isAuthenticated = require('../../middleware/isAuthenticated');
 

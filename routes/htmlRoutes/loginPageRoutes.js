@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 // Import the UserController module
-const UserController = require('../../controllers/UserController');
+const UserController = require('../../controllers/userController');
 
 // Define a route and associate it with the corresponding controller method
 
