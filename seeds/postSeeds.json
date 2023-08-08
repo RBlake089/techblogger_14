@@ -1,0 +1,21 @@
+[
+   {
+     "post_id": 1,
+     "title": "Morning Jog",
+     "description": "I enjoyed my morning jog so much more than usual. It was refreshing!",
+     "user_id": 1
+   },
+   {
+     "post_id": 2,
+     "title": "Weightlifting Session",
+     "description": "I prefer weightlifting more than cardio. I feel stronger with each session.",
+     "user_id": 2
+   },
+   {
+     "post_id": 3,
+     "title": "Yoga Practice",
+     "description": "I enjoyed my yoga practice today. Once I got into the flow, it was very relaxing.",
+     "user_id": 3
+   }
+ ]
+ 

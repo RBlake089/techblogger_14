@@ -1,0 +1,17 @@
+[
+  {
+    "user_id": 1,
+    "username": "UnderArmourDOOD1",
+    "password": "12345678"  
+  },
+  {
+    "user_id": 2,
+    "username": "UnderArmourLADY12",
+    "password": "12345678"  
+  },
+  {
+    "user_id": 3,
+    "username": "UnderArmourLover12",
+    "password": "12345678"  
+  }
+]

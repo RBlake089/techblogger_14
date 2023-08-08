@@ -24,10 +24,10 @@ router.use('/login', loginRoutes);
 router.use('/signup', signupRoutes);
 
 // Route for handling new post creation-related routes
-router.use('/create-new-post', newPostRoutes);
+router.use('/createNewPost', newPostRoutes);
 
 // Route for handling single post-related routes
-router.use('/get-single-post', singlePostRoutes);
+router.use('/getSinglePost', singlePostRoutes);
 
 // Export the router to be used in other modules
 module.exports = router;

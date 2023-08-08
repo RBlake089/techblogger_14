@@ -1,0 +1,17 @@
+[
+   {
+      "post_id": 1,
+      "description": "Gone are the days when athletic wear was solely focused on functionality. Today, stylish designs have become a crucial element in athletic apparel, enabling athletes to showcase their personalities while performing at their best.",
+      "user_id": 2
+   },
+   {
+      "post_id": 2,
+      "description": "In the quest to optimize athletes' performance, advanced technologies are now integrated into athletic wear. Moisture-wicking fabrics, compression garments, and seamless constructions are some examples of how sportswear manufacturers are elevating the game.",
+      "user_id": 3
+   },
+   {
+      "post_id": 3,
+      "description": "With growing concerns about the impact of fashion on the environment, the athletic wear industry is taking significant strides towards sustainability. ",
+      "user_id": 1
+   }
+]
