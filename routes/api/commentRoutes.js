@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 // Import the CommentController module
-const CommentController = require('../../controllers/CommentController');
+const CommentController = require('../../controllers/commentController');
 
 // Define a route for handling POST requests to create comments
 router.post('/', CommentController.createComment);

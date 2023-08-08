@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 // Import the DashboardController module
-const DashboardController = require('../../controllers/DashboardController');
+const DashboardController = require('../../controllers/dashboardController');
 
 // Define routes and associate them with corresponding controller methods
 
