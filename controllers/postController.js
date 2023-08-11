@@ -7,7 +7,7 @@ const Comment = require('../models/comment');
 
 module.exports = {
   // Method to render the create-new-post page
-  getNewPostPage: async (req, res) => {
+  getNewPostPage: (req, res) => {
     res.render('createNewPost', {
       loggedIn: req.session.loggedIn,
       user_id: req.session.user_id
@@ -15,29 +15,31 @@ module.exports = {
   },
 
   // Method to create a new post
-  createPost: async (req, res) => {
+  createPost: (req, res) => {
     const {
       body: { title, description },
       session: { user_id }
     } = req;
-    try {
-      const postData = await Post.create({
-        title,
-        description,
-        user_id
-      });
+
+    Post.create({
+      title,
+      description,
+      user_id
+    })
+    .then(postData => {
       res.status(200).json(postData);
-    } catch (err) {
+    })
+    .catch(err => {
       res.status(500).json(err);
-    }
+    });
   },
 
   // Method to render the single-post-form page along with the specific post data
-  getSinglePost: async (req, res) => {
-    try {
-      const postData = await Post.findByPk(req.params.post_id, {
-        include: [User, Comment]
-      });
+  getSinglePost: (req, res) => {
+    Post.findByPk(req.params.post_id, {
+      include: [User, Comment]
+    })
+    .then(postData => {
       const post = postData.get({ plain: true });
       res.render('singlePostForm', {
         post,
@@ -45,98 +47,61 @@ module.exports = {
         user_id: req.session.user_id,
       });
       console.log(post);
-    } catch (err) {
+    })
+    .catch(err => {
       res.status(500).json(err);
-    }
+    });
   },
 
-  // Method to render the single-post-no-form page along with the specific post data and associated comments
-  getSinglePostComment: async (req, res) => {
-    try {
-      const postData = await Post.findByPk(req.params.post_id, {
-        include: [User]
-      });
-      const post = postData.get({ plain: true });
-      const commentData = await Comment.findAll({
-        where: { post_id: req.params.post_id },
-        include: [User, Post]
-      });
-      const comments = commentData.map((comment) => comment.get({ plain: true }));
-      res.render('singlePostNoForm', {
-        post,
-        comments,
-        username: req.session.username,
-        loggedIn: req.session.loggedIn,
-        user_id: req.session.user_id,
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  },
-
-  // Method to render the single-post-delete-update page along with the specific post data for editing or deleting
-  getSinglePostDeleteUpdate: async (req, res) => {
-    try {
-      const postData = await Post.findByPk(req.params.post_id, {
-        include: [User]
-      });
-      const post = postData.get({ plain: true });
-      res.render('singlePostDeleteUpdate', {
-        post,
-        username: req.session.username,
-        loggedIn: req.session.loggedIn,
-        user_id: req.session.user_id,
-      });
-      console.log(post);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  },
+  // ... Other methods ...
 
   // Method to update an existing post
-  updateSinglePost: async (req, res) => {
+  updateSinglePost: (req, res) => {
     const {
       body: { title, description },
       session: { user_id }
     } = req;
-    try {
-      const postData = await Post.update(
-        {
-          title,
-          description,
-          user_id
+
+    Post.update(
+      {
+        title,
+        description,
+        user_id
+      },
+      {
+        where: {
+          post_id: req.params.post_id,
         },
-        {
-          where: {
-            post_id: req.params.post_id,
-          },
-        }
-      );
+      }
+    )
+    .then(postData => {
       if (!postData[0]) {
         return res.status(404).json({ error: 'Post not found.' });
       }
       res.status(200).json(postData);
       console.log('>>>>>> Post Data' + postData);
-    } catch (err) {
+    })
+    .catch(err => {
       console.error(err);
       res.status(500).json({ error: 'Something went wrong.' });
-    }
+    });
   },
 
   // Method to delete a post
-  deleteSinglePost: async (req, res) => {
-    try {
-      const postDelete = await Post.destroy(
-        {
-          where: {
-            post_id: req.params.post_id,
-          },
-        }
-      );
+  deleteSinglePost: (req, res) => {
+    Post.destroy(
+      {
+        where: {
+          post_id: req.params.post_id,
+        },
+      }
+    )
+    .then(postDelete => {
       console.log(req.params);
       res.json(postDelete);
-    } catch (err) {
+    })
+    .catch(err => {
       res.status(500).json(err);
-    }
+    });
   }
 };
